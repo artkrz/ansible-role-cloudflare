@@ -1,0 +1,16 @@
+---
+- name: Create DNS records
+  cloudflare_dns:
+    zone: "{{ item.0.zone }}"
+    record: "{{ item.1.name | default('@') }}"
+    type: "{{ item.1.type }}"
+    value: "{{ item.1.value }}"
+    priority: "{{ item.1.priotity | default('1') }}"
+    ttl: "{{ item.1.ttl | default('1') }}"
+    account_email: "{{ cloudflare_account_email }}"
+    account_api_token: "{{ cloudflare_account_api_token | trim }}"
+    state: "{{ item.1.state | default('present') }}"
+    solo: "{{ item.1.solo | default('true') }}"
+  with_subelements:
+    - "{{ cloudflare_dns_records }}"
+    - records
