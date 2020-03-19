@@ -1,2 +1,9 @@
 ---
+galaxy_info:
+  role_name: cloudflare
+  author: Artur Krzywański
+  description: Role for managing DNS records in Cloudflare
+  license: BSD
+  min_ansible_version: 1.2
+  galaxy_tags: ["dns", "cloudflare"]
 dependencies: []
