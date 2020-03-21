@@ -10,7 +10,8 @@
     account_email: "{{ cloudflare_account_email }}"
     account_api_token: "{{ cloudflare_account_api_token | trim }}"
     state: "{{ item.1.state | default('present') }}"
-    solo: "{{ item.1.solo | default('true') }}"
+    solo: "{{ item.1.solo | default('yes') }}"
+    proxied: "{{ item.1.proxied | default('no') }}"
   with_subelements:
     - "{{ cloudflare_dns_records }}"
     - records
