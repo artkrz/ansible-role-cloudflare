@@ -18,7 +18,9 @@ cloudflare_account_api_token | Account API token. You can obtain your API key fr
 cloudflare_dns_records.zone | DNS zone to mange. | none | Yes
 cloudflare_dns_records.records | DNS record to mange (described below). | none | Yes
 
+
 ```cloudflare_dns_records.records``` (https://docs.ansible.com/ansible/latest/modules/cloudflare_dns_module.html#id3)
+
 
  Key | Description | Default value | Required
 ------------ | ------------- | ------------- | -------------
@@ -29,6 +31,8 @@ priority | Record priority. | 1 | Required for `type: MX` and `type: SRV`
 ttl | The TTL to give the new record. Must be between 120 and 2,147,483,647 seconds, or 1 for automatic. | 1 | No
 state | Whether the record(s) should exist or not. | present | no
 solo | Whether the record should be the only one for that record type and record name. Only use with `state: present`. This will delete all other records with the same record name and type. | Yes | No
+proxied | Proxy through Cloudflare network or just use DNS. | no | no
+
 
 Example config
 --------------
