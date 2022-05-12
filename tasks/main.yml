@@ -12,6 +12,10 @@
     state: "{{ item.1.state | default('present') }}"
     solo: "{{ item.1.solo | default('yes') }}"
     proxied: "{{ item.1.proxied | default('no') }}"
+    proto: "{{ item.1.proto | default(omit) }}"
+    service: "{{ item.1.service | default(omit) }}"
+    weight: "{{ item.1.weight | default(omit) }}"
+    port: "{{ item.1.port | default(omit) }}"
   with_subelements:
     - "{{ cloudflare_dns_records }}"
     - records
